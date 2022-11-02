@@ -1,26 +1,65 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .h1 {
+    @apply font-poppins font-bold text-[64px] tracking-[-2%] leading-none;
   }
-  body {
-    color: white;
-    background: black;
+
+  .h2 {
+    @apply font-poppins font-bold text-[40px] tracking-[-0.02em] leading-none;
+  }
+
+  .h3 {
+    @apply font-poppins font-bold text-[24px] tracking-[-2%] leading-[1.2];
+  }
+
+  .gradient {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500
+  }
+
+  .subtitle {
+    @apply font-work font-medium text-[20px] tracking-[3%];
+  }
+
+  .body {
+    @apply font-work font-normal text-[16px] leading-[1.4] text-[#646983];
+  }
+
+  .link {
+    @apply font-work font-bold text-[16px];
+  }
+
+  .button-text {
+    @apply font-work font-bold text-[16px];
+  }
+
+  .btn-primary {
+    @apply button-text bg-primary-500 text-white shadow-glow rounded-[14px] py-[10px] px-[40px] enabled:hover:bg-primary-700 enabled:focus:bg-primary-700 enabled:focus:border-solid enabled:focus:border-2 enabled:focus:border-primary-300 enabled:focus:shadow-[0px_0px_0px_2px_#EEF1FF] enabled:active:bg-primary-700 enabled:active:border-solid enabled:active:border-4 enabled:active:border-primary-300 enabled:active:shadow-glow disabled:bg-primary-300 disabled:shadow-none;
+  }
+
+  .btn-reject {
+    @apply button-text bg-white text-red-400 rounded-[14px] py-[10px] pr-[40px] disabled: shadow-none;
+  }
+
+  .btn-deactive {
+    @apply button-text bg-gray-200 text-gray-500 rounded-[14px] py-[10px] px-[40px] disabled: shadow-none;
+  }
+
+  .btn-secondary {
+    @apply button-text bg-white text-primary-500 rounded-[14px] py-[10px] px-[40px] border-solid border-2 border-primary-500 enabled:hover:bg-primary-50 enabled:focus:bg-primary-50 enabled:focus:border-solid enabled:focus:border-4 enabled:focus:border-primary-300 enabled:focus:shadow-[0px_0px_4px_#EEF1FF] enabled:active:bg-primary-50 enabled:active:border-solid enabled:active:border-2 enabled:active:border-primary-500 enabled:active:shadow-[0px_0px_0px_4px_#8B98E5] disabled:border-solid disabled:border-[1px] disabled:border-primary-50 disabled:text-neutral-100 disabled:font-normal;
+  }
+
+  .label-form {
+    @apply font-work font-normal text-[16px] text-neutral-500
+  }
+
+  .text-input {
+    @apply bg-neutral-50 w-full px-[21px] py-[13px] rounded-[14px] active:border-primary-300 active:bg-white active:shadow-[0px_0px_0px_4px_#EEF1FF] focus:bg-white text-neutral-500 focus:border-neutral-50 focus:outline outline-offset-1 outline-1 outline-neutral-50
+  }
+
+  .file-input {
+    @apply text-neutral-500 body w-full file:mr-4 file:px-[21px] file:py-[13px] file:rounded-[14px] file:bg-white file:border-neutral-50 file:border-solid file:text-neutral-500 hover:cursor-pointer file:hover:cursor-pointer
   }
 }
