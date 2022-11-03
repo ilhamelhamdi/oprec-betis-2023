@@ -13,7 +13,7 @@ const Card = ({ onClick, data }) => (
         />
       </div>
     </div>
-    <div className="h-1/3 p-5 flex flex-col justify-between">
+    <div className="h-1/3 p-4 flex flex-col justify-between">
       <h2 className="subtitle">{data.name}</h2>
       <p className="line-clamp-2 body">{data.description}</p>
       <p className="text-right text-primary-500">until {data.expired_date}</p>

@@ -31,6 +31,10 @@
     @apply font-work font-bold text-[16px];
   }
 
+  .small-text {
+    @apply font-work font-normal text-[10px] tracking-[3%] leading-[1.4];
+  }
+
   .button-text {
     @apply font-work font-bold text-[16px];
   }
@@ -61,5 +65,21 @@
 
   .file-input {
     @apply text-neutral-500 body w-full file:mr-4 file:px-[21px] file:py-[13px] file:rounded-[14px] file:bg-white file:border-neutral-50 file:border-solid file:text-neutral-500 hover:cursor-pointer file:hover:cursor-pointer
+  }
+  
+  .toast-container{
+    @apply border-l-8 shadow-lg w-full bg-white rounded-[14px] px-[24px] py-[24px] flex flex-row justify-between
+  }
+  .toast-success{
+    @apply border-l-secondary-500 text-secondary-500 text-[48px]
+  }
+  .toast-error{
+    @apply border-l-error-500 text-error-500 text-[48px]
+  }
+  .toast-warning{
+    @apply border-l-warning-500 text-warning-500 text-[48px]
+  }
+  .toast-info{
+    @apply border-l-primary-500 text-indigo-500 text-[48px]
   }
 }

@@ -8,14 +8,11 @@ const post = async (url, data) => {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${TOKEN}`,
-      'Referer': '',
-      referrerPolicy: "no-referrer",
-      'Accept': 'application/json, text/plain'
     },
     body: data
   });
 
-  return await response.json()
+  return response
 }
 
 const get = async (url) => {
@@ -28,4 +25,26 @@ const get = async (url) => {
   return await response.json()
 }
 
-export { post, get }
+const patch = async (url, data) => {
+  const response = await fetch(BASE_URL + url, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${TOKEN}`,
+    },
+    body: data
+  });
+
+  return response
+}
+
+const del = async (url) => {
+  const response = await fetch(BASE_URL + url, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${TOKEN}`
+    }
+  })
+  return response
+}
+
+export { post, get, patch, del }
