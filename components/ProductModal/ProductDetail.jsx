@@ -34,9 +34,9 @@ const ProductDetail = ({ data, setToEdit, closeModal }) => {
 
     return (
         <div className="flex flex-col">
-            <h2 className="text-primary-700 text-center h2">Detail Roti</h2>
+            <h2 className="text-primary-700 text-center h2">Bread&apos;s Detail</h2>
             <div className="flex flex-col md:flex-row mt-4 h-full">
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 flex justify-center items-center">
                     <div className="w-full max-w-[400px] aspect-square relative rounded-3xl overflow-hidden flex justify-center items-center">
                         <Image
                             src={data.image}
@@ -46,7 +46,7 @@ const ProductDetail = ({ data, setToEdit, closeModal }) => {
                         />
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 md:ml-6 flex flex-col justify-between">
+                <div className="w-full md:w-1/2 md:ml-6 mt-4 md:mt-0 flex flex-col justify-between">
                     <div className="flex flex-col space-y-4">
                         <h3 className="h3 text-center font-bold">{data.name}</h3>
                         <p className="text-right text-primary-500">
@@ -54,7 +54,7 @@ const ProductDetail = ({ data, setToEdit, closeModal }) => {
                         </p>
                         <p className="body text-justify">{data.description}</p>
                     </div>
-                    <div className="w-full flex gap-4 mt-8">
+                    <div className="w-full flex flex-col sm:flex-row gap-4 mt-8">
                         <button onClick={handleEdit} className="btn-primary w-full">EDIT</button>
                         <button onClick={handleDelete} className={`btn-secondary w-full ${isLoading && 'cursor-not-allowed'}`}>
                             {isLoading

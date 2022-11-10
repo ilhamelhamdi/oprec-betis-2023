@@ -8,6 +8,7 @@ import toast from "../../utils/toast"
 import LoadingIcon from "../../public/images/Icons/loading.svg"
 
 const ProductEdit = ({ data, closeModal }) => {
+    const MAX_LENGTH_NAME = 64
     const initialValue = {
         name: "",
         description: "",
@@ -23,6 +24,10 @@ const ProductEdit = ({ data, closeModal }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
+
+        // Validate name input length
+        if (name === 'name' && value.length > 64) return
+
         setValue(prevValue => {
             return {
                 ...prevValue,
@@ -84,20 +89,21 @@ const ProductEdit = ({ data, closeModal }) => {
             <form onSubmit={handleSubmit} className="flex flex-col md:flex-row mt-4 h-full">
                 <div className="w-full md:w-1/2 flex flex-col items-center">
                     <span className="label-form block w-full">Picture</span>
-                    <div className="w-full max-w-[400px] aspect-square relative rounded-3xl overflow-hidden flex justify-center items-center">
+                    <label htmlFor="picture" className="w-full max-w-[400px] aspect-square relative rounded-3xl overflow-hidden flex justify-center items-center cursor-pointer">
                         <Image
                             src={value.image}
                             fill={true}
                             alt={`Image of ${value.name}`}
                             className="object-cover mx-auto"
                         />
-                    </div>
+                    </label>
                     <input
+                        id="picture"
                         type="file"
                         accept="image/*"
                         encType="multipart/form-data"
                         onChange={handleImageChange}
-                        className="file-input"
+                        className="file-input mt-2"
                         required={isEditing ? false : true}
                     />
                 </div>
@@ -110,13 +116,12 @@ const ProductEdit = ({ data, closeModal }) => {
                                 name="name"
                                 value={value.name}
                                 onChange={handleChange}
-                                maxLength={64}
                                 autoComplete="false"
                                 className="text-input"
                                 required
                             />
                             <span className="small-text inline-block w-full text-right text-neutral-500">
-                                {value.name.length}/64
+                                {value.name.length}/{MAX_LENGTH_NAME}
                             </span>
                         </label>
                         <label>

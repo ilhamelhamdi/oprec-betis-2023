@@ -4,7 +4,7 @@
 
 @layer components {
   .h1 {
-    @apply font-poppins font-bold text-[64px] tracking-[-2%] leading-none;
+    @apply font-poppins font-bold text-[48px] sm:text-[64px] tracking-[-2%] leading-none;
   }
 
   .h2 {
